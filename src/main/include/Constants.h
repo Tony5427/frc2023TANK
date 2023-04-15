@@ -14,8 +14,32 @@
  * they are needed.
  */
 
-namespace OperatorConstants {
+namespace constants {
+constexpr int X = 0;
+constexpr int Y = 1;
+constexpr int rot = 2;
+constexpr int slider = 3;
+
+constexpr int trigger = 1;
+
+constexpr double deadband = 0.05;
+
 
 constexpr int kDriverControllerPort = 0;
+
+    //****** NUMBERS *******/
+constexpr double Z_ROT_DAMPENING = 0.75;
+constexpr double TURN_TOLERANCE =  2;
+constexpr double DRIVE_TOLERANCE = 0.5;
+constexpr double DRIVETRAIN_WHEEL_DIAMETER = 4; //in inches
+constexpr double DRIVE_SPEED = 1.0;
+
+            /*****************Motor ports*****************/
+constexpr int LEFT_TOP_MOTOR = 1; 
+constexpr int LEFT_BOTTOM_MOTOR = 2;
+constexpr int RIGHT_TOP_MOTOR = 3;
+constexpr int RIGHT_BOTTOM_MOTOR = 4;
+
+
 
 }  // namespace OperatorConstants
