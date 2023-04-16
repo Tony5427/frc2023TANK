@@ -7,6 +7,8 @@
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/SubsystemBase.h>
 #include <frc/motorcontrol/Spark.h>
+#include <frc/motorcontrol/MotorControllerGroup.h>
+#include <frc/drive/DifferentialDrive.h>
 
 class DriveSubsystem : public frc2::SubsystemBase {
  public:
@@ -18,7 +20,7 @@ class DriveSubsystem : public frc2::SubsystemBase {
 
   void Periodic() override;
 
-  void TankDrive(double xSpeed);
+  void TankDrive(double xSpeed, double rot);
 
 
  private:
@@ -28,4 +30,7 @@ class DriveSubsystem : public frc2::SubsystemBase {
   frc::Spark lefttwo{1};
   frc::Spark rightone{2};
   frc::Spark righttwo{3};
+  frc::MotorControllerGroup m_leftMotors{leftone, lefttwo};
+  frc::MotorControllerGroup m_rightMotors{rightone, righttwo};
+  frc::DifferentialDrive m_drive{m_leftMotors, m_rightMotors};
 };

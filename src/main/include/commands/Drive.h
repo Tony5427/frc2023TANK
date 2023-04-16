@@ -24,13 +24,14 @@ class Drive
  private:
   DriveSubsystem* m_drive;
   double m_xSpeed;
+  double m_rotation;
  public:
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  explicit Drive(DriveSubsystem* driver, double xSpeed);
+  explicit Drive(DriveSubsystem* driver, double xSpeed, double rot);
 
 
   void Initialize() override;

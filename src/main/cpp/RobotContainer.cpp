@@ -9,10 +9,13 @@
 #include <frc2/command/StartEndCommand.h>
 #include <frc2/command/button/JoystickButton.h>
 #include <frc2/command/button/POVButton.h>
+#include "subsystems/DriveSubsystem.h"
 
 #include "Constants.h"
 
+
 RobotContainer::RobotContainer() {
+  
   // Initialize all of your commands and subsystems here
     m_drive.SetDefaultCommand(frc2::RunCommand(
     [this] {
@@ -22,13 +25,21 @@ RobotContainer::RobotContainer() {
   //                       m_driveController.GetRawAxis(X) : 0;
   //     double rotOutput = std::abs(m_driveController.GetRawAxis(rot)) > deadband ?
   //                         m_driveController.GetRawAxis(rot) : 0;
-  double xSpeed = std::abs(m_driveController.GetRawAxis(Y));
+  
+  // double xSpeed = std::abs(m_driveController.GetRawAxis(Y));
+
+        double xSpeed = m_driveController.GetY();
+        double zRotation = m_driveController.GetZ();
+
+
+        // drive all motors with joystick
+        m_drive.TankDrive(xSpeed, zRotation);
 
   //     m_drive.Drive(units::meters_per_second_t{yOutput},
   //                   units::meters_per_second_t{xOutput},
   //                   units::radians_per_second_t{rotOutput});
 
-  m_drive.TankDrive(xSpeed);
+  // m_drive.TankDrive(xSpeed);
     },
     {&m_drive}
   ));
