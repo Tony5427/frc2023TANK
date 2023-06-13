@@ -4,14 +4,14 @@
 
 #include "commands/Drive.h"
 
-Drive::Drive(DriveSubsystem *driver, double xSpeed, double rot)
-    : m_drive(driver), m_xSpeed(xSpeed), m_rotation(rot){
+Drive::Drive(DriveSubsystem *driver, double xSpeed)
+    : m_drive(driver), m_xSpeed(xSpeed){
   // Register that this command requires the subsystem.
   AddRequirements(m_drive);
 }
 
 void Drive::Initialize() {
-  m_drive->TankDrive(m_xSpeed, m_rotation);
+  m_drive->TankDrive(m_xSpeed);
 }
 
 void Drive::Execute() {}

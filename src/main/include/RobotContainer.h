@@ -6,7 +6,6 @@
 
 #include <frc/GenericHID.h>
 #include <frc2/command/Command.h>
-#include <frc/Joystick.h>
 
 #include "Constants.h"
 #include "subsystems/DriveSubsystem.h"
@@ -27,8 +26,7 @@ class RobotContainer {
   RobotContainer();
 
  private:
-  //  frc::GenericHID m_driveController{0};
-   frc::Joystick m_driveController{0};
+   frc::GenericHID m_driveController{0};
    DriveSubsystem m_drive;
 
   //  DriveSubsystem m_drive;

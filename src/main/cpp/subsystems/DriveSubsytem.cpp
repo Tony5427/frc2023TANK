@@ -7,15 +7,17 @@
 
 DriveSubsystem::DriveSubsystem() {
   // Implementation of subsystem constructor goes here.
+  frc::Spark leftone{0};
+  frc::Spark lefttwo{1};
+  frc::Spark rightone{2};
+  frc::Spark righttwo{3};
 }
 
-void DriveSubsystem::TankDrive(double xSpeed, double rot) {
-
-
-  leftone.Set(xSpeed-rot);
-  lefttwo.Set(xSpeed-rot);
-  rightone.Set(-xSpeed+rot);
-  righttwo.Set(-xSpeed+rot);
+void DriveSubsystem::TankDrive(double xSpeed) {
+  leftone.Set(xSpeed);
+  lefttwo.Set(xSpeed);
+  rightone.Set(-xSpeed);
+  righttwo.Set(-xSpeed);
 }
 
 void DriveSubsystem::Periodic() {
